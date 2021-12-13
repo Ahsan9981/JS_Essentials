@@ -1,17 +1,55 @@
-class Person {
+class User {
 
-    constructor(name) {
-        this.name = name;
+
+
+    constructor(username, password, isLoggedIn = false) {
+        this.username = username;
+        this._password = password;
+        this.isLoggedIn = isLoggedIn;
     }
 
-    sayHi() {
-        console.log(`${this.name} says Hi!`);
+    get password() { return '*'.repeat(this._password.length); }
+    set password(pwd) { this._password = pwd; }
+
+    login() {
+        
+        if (this.username === 'ahsan', this.password === 'password123') {
+            this.isLoggedIn = true;
+        }
+
+    }
+
+    show() {
+        console.log(`Username: ${this.username}`);
+        console.log(`Password: ${this.password}`);
+        console.log(`LoggedIn : ${this.isLoggedIn}`);
+    }
+
+    static getLoginUrl() {
+        return 'http://localhost:3000/login';
     }
 }
 
-const p = new Person('Lisa');
+class Developer extends User {
 
-console.log(typeof p);
-console.log(p instanceof Person);
 
-p.sayHi();
+    constructor(username, password, languages, isLoggedIn = false) {
+        super(username, password, isLoggedIn);
+        this.languages = languages;
+    }
+
+    listLanguages() {
+        console.log(this.languages.join('\n'));
+    }
+
+    show() {
+        super.show();
+        this.listLanguages()
+    }
+
+}
+
+const user = new Developer('ahsan', 'password123', ['JavaScript', 'C#', 'Ruby']);
+user.show();
+console.log(User.getLoginUrl());
+

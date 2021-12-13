@@ -8,6 +8,7 @@ const sayHi = (greetings = ' Hi', ...names) => {
 
 }
 
+sayHi('Hi', 'Ahsan', 'Awais', 'Haseeb');
 sayHi('Hello', 'Ahsan', 'Awais', 'Haseeb');
 sayHi(undefined, 'Ahsan', 'Awais', 'Haseeb');
 
