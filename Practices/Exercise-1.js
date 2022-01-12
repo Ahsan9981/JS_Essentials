@@ -1,8 +1,10 @@
+// My Solution
 const checkNumber = (a,b) => {
     return (a === 100 || b === 100)? true : ((a + b)  === 100);
 }
 
 
+// Instructor's Solution.
 const isEqualto100 = (a,b) => a === 100 || b === 100 || (a+b) === 100;
 
 console.log(checkNumber(100, 0));
